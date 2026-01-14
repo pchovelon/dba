@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Pierrick Chovelon - DBA</title>
-    <link>https://dba.chovelon.fr/posts/</link>
+    <link>https://pchovelon.girhub.io/dba/posts/</link>
     <description>Recent content in Posts on Pierrick Chovelon - DBA</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 14 Jan 2026 18:24:12 +0100</lastBuildDate>
-    <atom:link href="https://dba.chovelon.fr/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pchovelon.girhub.io/dba/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PGSession18 - CloudNativePG, ou comment embarquer un éléphant sur Kubernetes</title>
-      <link>https://dba.chovelon.fr/posts/pgsession2026/</link>
+      <link>https://pchovelon.girhub.io/dba/posts/pgsession2026/</link>
       <pubDate>Wed, 14 Jan 2026 18:24:12 +0100</pubDate>
-      <guid>https://dba.chovelon.fr/posts/pgsession2026/</guid>
-      <description>&lt;p&gt;Les slides de ma présentation sur CloudNativePG&#xA;&lt;img src=&#34;https://dba.chovelon.fr/pdf/pgsessions_2026.pdf&#34; alt=&#34;PDF&#34;&gt;&lt;/p&gt;</description>
+      <guid>https://pchovelon.girhub.io/dba/posts/pgsession2026/</guid>
+      <description>&lt;p&gt;Les slides de ma présentation sur CloudNativePG&#xA;&lt;img src=&#34;https://pchovelon.girhub.io/dba/pdf/pgsessions_2026.pdf&#34; alt=&#34;PDF&#34;&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

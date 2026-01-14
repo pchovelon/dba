@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Pierrick Chovelon - DBA</title>
-    <link>https://dba.chovelon.fr/tags/</link>
+    <link>https://pchovelon.girhub.io/dba/tags/</link>
     <description>Recent content in Tags on Pierrick Chovelon - DBA</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="https://dba.chovelon.fr/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pchovelon.girhub.io/dba/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
