@@ -1,4 +1,4 @@
-baseURL = 'https://dba.chovelon.fr/'
+baseURL = 'https://pchovelon.girhub.io/dba'
 languageCode = 'en-us'
 title = 'Pierrick Chovelon - DBA'
 theme = 'yinyang'
