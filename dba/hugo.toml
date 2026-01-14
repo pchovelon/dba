@@ -1,0 +1,14 @@
+baseURL = 'https://dba.chovelon.fr/'
+languageCode = 'en-us'
+title = 'Pierrick Chovelon - DBA'
+theme = 'yinyang'
+
+[params]
+headTitle = "Pierrick Chovelon"
+
+[[params.socials]]
+name = "Linkedin"
+link = "https://www.linkedin.com/in/pierrick-chovelon-9522a07b/"
+[[params.socials]]
+name = "Github"
+link = "https://github.com/pchovelon"
