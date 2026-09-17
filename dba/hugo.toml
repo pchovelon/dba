@@ -1,10 +1,10 @@
-baseURL = 'https://pchovelon.girhub.io/dba'
-languageCode = 'en-us'
-title = 'Pierrick Chovelon - DBA'
-theme = 'yinyang'
+baseURL = "https://pchovelon.girhub.io/dba"
+languageCode = "en-us"
+title = "Pierrick Chovelon - DBA"
+#theme = 'yinyang'
+# paginate = 5
+theme = ["PaperMod"]
 
-[params]
-headTitle = "Pierrick Chovelon"
 
 [[params.socials]]
 name = "Linkedin"
@@ -12,3 +12,37 @@ link = "https://www.linkedin.com/in/pierrick-chovelon-9522a07b/"
 [[params.socials]]
 name = "Github"
 link = "https://github.com/pchovelon"
+
+
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+[[minify]]
+  disableXML = true
+  minifyOutput = true
+
+[params]
+headTitle = "Pierrick Chovelon"
+title = "Pierrick Chovelon - DBA"
+keywords = ["Blog", "DBA"]
+author = "Pierrick"
+defaultTheme = "auto" # dark, light
+ShowReadingTime = "true"
+ShowPostNavLinks = "true"
+ShowCodeCopyButtons = "true"
+disableSpecial1stPost = "true"
+disableScrollToTop = false
+hidemeta = false
+hideSummary = true
+repository = "https://github.com/pchovelon/dba"
+[menus]
+  [[menus.main]]
+    name = 'Home'
+    pageRef = '/'
+    weight = 10#
+  [[menus.main]]
+    name = 'Posts'
+    pageRef = '/posts'
+    weight = 10#
