@@ -4,3 +4,4 @@ title = 'PGSession18 - CloudNativePG, ou comment embarquer un éléphant sur Kub
 +++
 
 Slides : <https://pchovelon.github.io/dba/pdf/pgsessions_2026.pdf>
+Vidéo : <https://www.youtube.com/watch?v=fHcrJl66KZk>
