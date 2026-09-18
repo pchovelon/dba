@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
+<html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/dba/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=dba/livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>PGSession18 - CloudNativePG, ou comment embarquer un éléphant sur Kubernetes | Pierrick Chovelon - DBA</title>
 <meta name="keywords" content="">
 <meta name="description" content="Slides : https://pchovelon.github.io/dba/pdf/pgsessions_2026.pdf
 Vidéo : https://www.youtube.com/watch?v=fHcrJl66KZk">
 <meta name="author" content="Pierrick">
-<link rel="canonical" href="https://pchovelon.girhub.io/dba/posts/pgsession2026/">
-<link crossorigin="anonymous" href="/dba/assets/css/stylesheet.6ff46447b1fa3f8a5cc0bcae48088decc3ae37f5fbc99406a3aefc3bf0e6044a.css" integrity="sha256-b/RkR7H6P4pcwLyuSAiN7MOuN/X7yZQGo678O/DmBEo=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://pchovelon.girhub.io/dba/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://pchovelon.girhub.io/dba/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://pchovelon.girhub.io/dba/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://pchovelon.girhub.io/dba/apple-touch-icon.png">
-<link rel="mask-icon" href="https://pchovelon.girhub.io/dba/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:1313/dba/posts/pgsession2026/">
+<link crossorigin="anonymous" href="/dba/assets/css/stylesheet.6a98292fb8fa8cf0f3ba4042d4b75515c04267550f3ad49ff6271b5af9562443.css" integrity="sha256-apgpL7j6jPDzukBC1LdVFcBCZ1UPOtSf9icbWvlWJEM=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/dba/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://localhost:1313/dba/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/dba/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/dba/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/dba/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/dba/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://pchovelon.girhub.io/dba/posts/pgsession2026/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/dba/posts/pgsession2026/">
 <noscript>
     <style>
         #theme-toggle,
@@ -37,118 +39,52 @@ Vidéo : https://www.youtube.com/watch?v=fHcrJl66KZk">
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
+                --hljs-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
-                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .toc {
-                background: var(--entry);
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
             }
         }
 
     </style>
 </noscript>
+</head>
+
+<body class="" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
+        document.body.classList.add('dark');
     } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
+        document.body.classList.remove('dark')
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
+        document.body.classList.add('dark');
     }
 
-</script><meta property="og:url" content="https://pchovelon.girhub.io/dba/posts/pgsession2026/">
-  <meta property="og:site_name" content="Pierrick Chovelon - DBA">
-  <meta property="og:title" content="PGSession18 - CloudNativePG, ou comment embarquer un éléphant sur Kubernetes">
-  <meta property="og:description" content="Slides : https://pchovelon.github.io/dba/pdf/pgsessions_2026.pdf
-Vidéo : https://www.youtube.com/watch?v=fHcrJl66KZk">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2026-01-14T18:24:12+01:00">
-    <meta property="article:modified_time" content="2026-01-14T18:24:12+01:00">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="PGSession18 - CloudNativePG, ou comment embarquer un éléphant sur Kubernetes">
-  <meta name="twitter:description" content="Slides : https://pchovelon.github.io/dba/pdf/pgsessions_2026.pdf
-Vidéo : https://www.youtube.com/watch?v=fHcrJl66KZk">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://pchovelon.girhub.io/dba/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "PGSession18 - CloudNativePG, ou comment embarquer un éléphant sur Kubernetes",
-      "item": "https://pchovelon.girhub.io/dba/posts/pgsession2026/"
-    }
-  ]
-}
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "PGSession18 - CloudNativePG, ou comment embarquer un éléphant sur Kubernetes",
-  "name": "PGSession18 - CloudNativePG, ou comment embarquer un éléphant sur Kubernetes",
-  "description": "Slides : https://pchovelon.github.io/dba/pdf/pgsessions_2026.pdf\nVidéo : https://www.youtube.com/watch?v=fHcrJl66KZk\n",
-  "keywords": [
-    
-  ],
-  "articleBody": "Slides : https://pchovelon.github.io/dba/pdf/pgsessions_2026.pdf\nVidéo : https://www.youtube.com/watch?v=fHcrJl66KZk\n",
-  "wordCount" : "6",
-  "inLanguage": "en",
-  "datePublished": "2026-01-14T18:24:12+01:00",
-  "dateModified": "2026-01-14T18:24:12+01:00",
-  "author":{
-    "@type": "Person",
-    "name": "Pierrick"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://pchovelon.girhub.io/dba/posts/pgsession2026/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Pierrick Chovelon - DBA",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://pchovelon.girhub.io/dba/favicon.ico"
-    }
-  }
-}
-</script>
-</head>
-<body id="top">
-    <header class="header">
-    <nav class="header-nav">
+
+<header class="header">
+    <nav class="nav">
         <div class="logo">
-            <a href="https://pchovelon.girhub.io/dba/" accesskey="h" title="Pierrick Chovelon - DBA (Alt + H)">Pierrick Chovelon - DBA</a>
+            <a href="http://localhost:1313/dba/" accesskey="h" title="Pierrick Chovelon - DBA (Alt + H)">Pierrick Chovelon - DBA</a>
             <div class="logo-switches">
-                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -162,16 +98,18 @@ Vidéo : https://www.youtube.com/watch?v=fHcrJl66KZk">
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
-        <ul id="menu" class="menu">
+        <ul id="menu">
             <li>
-                <a href="https://pchovelon.girhub.io/dba/" title="Pierrick Chovelon - DBA">
+                <a href="http://localhost:1313/dba/" title="Pierrick Chovelon - DBA">
                     <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="https://pchovelon.girhub.io/dba/posts/" title="Posts">
+                <a href="http://localhost:1313/dba/posts/" title="Posts">
                     <span>Posts</span>
                 </a>
             </li>
@@ -183,28 +121,26 @@ Vidéo : https://www.youtube.com/watch?v=fHcrJl66KZk">
 <article class="post-single">
   <header class="post-header">
     
-    <h1 class="post-title entry-hint-parent">
+    <h1 class="post-title">
       PGSession18 - CloudNativePG, ou comment embarquer un éléphant sur Kubernetes
     </h1>
-    <div class="post-meta">
-
-<span title='2026-01-14 18:24:12 +0100 CET'>January 14, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Pierrick</span>
+    <div class="post-meta">&lt;span title=&#39;2026-01-14 18:24:12 &#43;0100 CET&#39;&gt;January 14, 2026&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;Pierrick
 
 </div>
   </header> 
-  <div class="post-content md-content"><p>Slides : <a href="https://pchovelon.github.io/dba/pdf/pgsessions_2026.pdf">https://pchovelon.github.io/dba/pdf/pgsessions_2026.pdf</a></p>
+  <div class="post-content"><p>Slides : <a href="https://pchovelon.github.io/dba/pdf/pgsessions_2026.pdf">https://pchovelon.github.io/dba/pdf/pgsessions_2026.pdf</a></p>
 <p>Vidéo : <a href="https://www.youtube.com/watch?v=fHcrJl66KZk">https://www.youtube.com/watch?v=fHcrJl66KZk</a></p>
 
 
   </div>
 
   <footer class="post-footer">
-    <a href="https://github.com/pchovelon/dba/edit/main/dba/content/posts/pgsession2026.md">Edit this page on Github</a>
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://pchovelon.girhub.io/dba/posts/alposs-2026/">
+  <a class="prev" href="http://localhost:1313/dba/posts/alposs-2026/">
     <span class="title">« Prev</span>
+    <br>
     <span>AlpOSS 2026 - PostgreSQL sur Kubernetes avec CloudNativePG - N’oubliez pas d’embarquer votre DBA PostgreSQL !</span>
   </a>
 </nav>
@@ -214,33 +150,23 @@ Vidéo : https://www.youtube.com/watch?v=fHcrJl66KZk">
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="https://pchovelon.girhub.io/dba/">Pierrick Chovelon - DBA</a></span> · 
-
-    
-    
+    <span>&copy; 2026 <a href="http://localhost:1313/dba/">Pierrick Chovelon - DBA</a></span>
     <span>
         Powered by
-        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
-<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
-        <polyline points="17 11 12 6 7 11"></polyline>
-        <polyline points="17 18 12 13 7 18"></polyline>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
     </svg>
 </a>
 
 <script>
-    let menu = document.getElementById('menu');
+    let menu = document.getElementById('menu')
     if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -267,25 +193,25 @@ Vidéo : https://www.youtube.com/watch?v=fHcrJl66KZk">
 
 </script>
 <script>
-    var toplink = document.getElementById("top-link");
+    var mybutton = document.getElementById("top-link");
     window.onscroll = function () {
-        const scrollThreshold = window.innerHeight;
-        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
-            toplink.classList.remove("hidden");
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
         } else {
-            toplink.classList.add("hidden");
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
         }
     };
 
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
             localStorage.setItem("pref-theme", 'light');
         } else {
-            html.dataset.theme = 'dark';
+            document.body.classList.add('dark');
             localStorage.setItem("pref-theme", 'dark');
         }
     })

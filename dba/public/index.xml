@@ -2,26 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Pierrick Chovelon - DBA</title>
-    <link>https://pchovelon.girhub.io/dba/</link>
+    <link>http://localhost:1313/dba/</link>
     <description>Recent content on Pierrick Chovelon - DBA</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Feb 2026 17:09:03 +0100</lastBuildDate>
-    <atom:link href="https://pchovelon.girhub.io/dba/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Feb 2026 17:09:03 +0100</lastBuildDate><atom:link href="http://localhost:1313/dba/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AlpOSS 2026 - PostgreSQL sur Kubernetes avec CloudNativePG - N’oubliez pas d’embarquer votre DBA PostgreSQL !</title>
-      <link>https://pchovelon.girhub.io/dba/posts/alposs-2026/</link>
+      <link>http://localhost:1313/dba/posts/alposs-2026/</link>
       <pubDate>Tue, 17 Feb 2026 17:09:03 +0100</pubDate>
-      <guid>https://pchovelon.girhub.io/dba/posts/alposs-2026/</guid>
+      
+      <guid>http://localhost:1313/dba/posts/alposs-2026/</guid>
       <description>&lt;p&gt;Slides : &lt;a href=&#34;https://pchovelon.github.io/dba/pdf/alposs_2026.pdf&#34;&gt;https://pchovelon.github.io/dba/pdf/alposs_2026.pdf&lt;/a&gt;&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>PGSession18 - CloudNativePG, ou comment embarquer un éléphant sur Kubernetes</title>
-      <link>https://pchovelon.girhub.io/dba/posts/pgsession2026/</link>
+      <link>http://localhost:1313/dba/posts/pgsession2026/</link>
       <pubDate>Wed, 14 Jan 2026 18:24:12 +0100</pubDate>
-      <guid>https://pchovelon.girhub.io/dba/posts/pgsession2026/</guid>
+      
+      <guid>http://localhost:1313/dba/posts/pgsession2026/</guid>
       <description>&lt;p&gt;Slides : &lt;a href=&#34;https://pchovelon.github.io/dba/pdf/pgsessions_2026.pdf&#34;&gt;https://pchovelon.github.io/dba/pdf/pgsessions_2026.pdf&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Vidéo : &lt;a href=&#34;https://www.youtube.com/watch?v=fHcrJl66KZk&#34;&gt;https://www.youtube.com/watch?v=fHcrJl66KZk&lt;/a&gt;&lt;/p&gt;</description>
     </item>
+    
   </channel>
 </rss>
